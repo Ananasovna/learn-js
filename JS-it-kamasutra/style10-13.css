@@ -5,3 +5,12 @@
 .hidden {
   display: none;
 }
+
+textarea {
+  width: 200px;
+}
+
+.width-0 {
+  width: 0;
+  transition: 3s;
+}
