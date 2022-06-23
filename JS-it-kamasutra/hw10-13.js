@@ -101,7 +101,7 @@ function hasClassHey(el) {
   if (el.classList.contains('hey')) {
     return true;
   } else {
-    return false;
+    return false;tsc 
   }
 }
 
@@ -115,3 +115,53 @@ function removeElementIfConditionsTrue(elements, predicate) {
 }
 
 removeElementIfConditionsTrue(inputs, hasClassHey);
+
+function getArrSumm(arr, func) {
+  let result = arr.reduce((sum, current) => sum + current, 0);
+  func(result);
+}
+
+function alertResult(number) {
+  console.log(number);
+}
+
+let numbers = [2, 3, 5];
+
+getArrSumm(numbers, alertResult);
+
+function deleter(el) {
+  el.remove();
+}
+
+function hider(el) {
+  el.classList.add('hidden');
+}
+
+function getConcreteFunctionByName(name) {
+  switch (name) {
+    case 'd':
+      return deleter;
+    case 'h':
+      return hider;
+  }
+}
+
+let concreteProcessor = getConcreteFunctionByName('d');
+
+// inputs.forEach(item => concreteProcessor(item));
+
+function addError(el) {
+  el.classList.add('error');
+}
+
+function makeWide(el) {
+  el.classList.add('width-500');
+}
+
+let methods = [addError, makeWide];
+
+function changeElements(arrEl, arrFunc) {
+  arrEl.forEach(el => arrFunc.forEach(item => item(el)));
+}
+
+changeElements(inputs, methods);

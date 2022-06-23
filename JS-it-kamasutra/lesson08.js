@@ -1,29 +1,20 @@
-const firstNameId = 'first-name';
-const firstNameEl = document.getElementById(firstNameId);
-const lastNameId = 'last-name';
-const lastNameEl = document.getElementById(lastNameId);
-const adressId = 'adress';
-const adressEl = document.getElementById(adressId);
-const citiesId = 'cities';
-const citiesEl = document.getElementById(citiesId);
-const hobbiesId = 'hobbies';
-const hobbiesEl = document.getElementById(hobbiesId);
-const imgWrapperId = 'img-wrapper';
-const imgWrapperEl = document.getElementById(imgWrapperId);
-const imgId = 'img';
-const imgEl = document.getElementById(imgId);
-
-window.console.log('Name:', firstNameEl.value, 
-  'Last name:', lastNameEl.value, 
-  'Adress:', adressEl.value,
-  'City:', citiesEl.value,
-  'Hobbies:', hobbies.value,
-  'wrapper:', imgWrapperEl.innerHTML,
-  'img:', imgEl.alt);
-
+var firstNameId = 'first-name';
+var firstNameEl = document.getElementById(firstNameId);
+var lastNameId = 'last-name';
+var lastNameEl = document.getElementById(lastNameId);
+var adressId = 'adress';
+var adressEl = document.getElementById(adressId);
+var citiesId = 'cities';
+var citiesEl = document.getElementById(citiesId);
+var hobbiesId = 'hobbies';
+var hobbiesEl = document.getElementById(hobbiesId);
+var imgWrapperId = 'img-wrapper';
+var imgWrapperEl = document.getElementById(imgWrapperId);
+var imgId = 'img';
+var imgEl = document.getElementById(imgId);
+window.console.log('Name:', firstNameEl.value, 'Last name:', lastNameEl.value, 'Adress:', adressEl.value, 'City:', citiesEl.value, 'Hobbies:', hobbies.value, 'wrapper:', imgWrapperEl.innerHTML, 'img:', imgEl.alt);
 firstNameEl.value = 'Ann';
 lastNameEl.value = 'Black';
-
 adressEl.className = 'error-input';
 imgEl.src = 'https://p.favim.com/orig/2019/04/22/stitch-wallpaper-cartoon-Favim.com-7085347.jpg';
 lastNameEl.title = 'last name';

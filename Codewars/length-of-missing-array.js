@@ -1,8 +1,8 @@
 
 function getLengthOfMissingArray(arr) {
-  let result = 0;
+  let result = -1;
 
-  if ( arr == null || arr == [] ||  arr.some(el => el.length == 0 ) ) {
+  if ( arr == null ||  arr.some(el => el.length == 0 ) ) {
     return 0;
   } else {
     arr.sort((a, b) => a.length - b.length).reduce((prevLength, current) => {
@@ -16,6 +16,6 @@ function getLengthOfMissingArray(arr) {
   return result;
 }
 
-let arr = [ [ null ] ];
+let arr = [ [ null ], [null, null] ];
 
 console.log(getLengthOfMissingArray(arr));

@@ -1,29 +1,35 @@
-// "use strict";
+"use strict";
 
-let user = {
-  name: "Василий Иванович",
-  age: 35
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
 };
 
-let json = JSON.stringify(user);
-json = JSON.parse(json);
-console.log(typeof json);
+// function printList(list) {
+//   let tmp = list;
 
+//   while (tmp) {
+//     console.log(tmp.value);
+//     tmp = tmp.next;
+//   }
+// }
 
-let room = {
-  number: 23
-};
+function printList(list) {
+  console.log(list.value);
+  
+  if (list.next) {
+    printList(list.next);
+  }
+ 
+}
 
-let meetup = {
-  title: "Совещание",
-  occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
-  place: room
-};
-
-// цикличные ссылки
-room.occupiedBy = meetup;
-meetup.self = meetup;
-
-console.log( JSON.stringify(meetup, function replacer(key, value) {
-  return (key != '' && value == 'meetup' ) ? undefined : value;
-}));
+printList(list);

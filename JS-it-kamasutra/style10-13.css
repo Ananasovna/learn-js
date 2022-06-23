@@ -14,3 +14,8 @@ textarea {
   width: 0;
   transition: 3s;
 }
+
+.width-500 {
+  background: green;
+  transition: 3s;
+}
