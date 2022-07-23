@@ -4,25 +4,39 @@ const calculator = {
   operation: undefined,
   num1: undefined,
   num2: undefined,
-  inputValue: undefined,
+  result: undefined,
+  inputValue: '',
 
-  buttonClickHandler() {
-    console.log(calculator.input.value);
-    if (this.innerText == 'C') {
-      calculator.inputValue = ''
-      calculator.input.value = calculator.inputValue;
-    } else if (this.innerText == '+') {
-      calculator.input.value = plus(num1, num2);
-    } else if (this.innerText == '-') {
-      calculator.input.value = minus(num1, num2);
-    } else if (this.innerText == 'х') {
-      calculator.input.value = multiply(num1, num2);
-    } else if (this.innerText == '/') {
-      calculator.input.value = divide(num1, num2);
+  buttonClickHandler(el) {
+    if (el.innerText == 'C') {
+      this.inputValue = ''
+      this.input.value = this.inputValue;
+    } else if (el.innerText == '+') {
+      this.operation = plus;
+      this.clearValue();
+    } else if (el.innerText == '-') {
+      this.operation = minus;
+      this.clearValue();
+    } else if (el.innerText == 'х') {
+      this.operation = multiply;
+      this.clearValue();
+    } else if (el.innerText == '/') {
+      this.operation = divide;
+      this.clearValue();
+    } else if (el.innerText == '=') {
+      this.num2 = this.input.value;
+      this.result = this.operation(this.num1, this.num2);
+      this.input.value = this.inputValue = this.result; 
     } else {
-      calculator.input.value = this.innerText;
+      this.inputValue += el.innerText;
+      this.input.value = calculator.inputValue;
     }
   },
+
+  clearValue() {
+    this.num1 = this.inputValue;
+    this.input.value = this.inputValue = '';
+  }
 }
 
-calculator.buttons.forEach(item => item.addEventListener('click', () => calculator.buttonClickHandler.call(item)));
+calculator.buttons.forEach(item => item.addEventListener('click', () => calculator.buttonClickHandler.call(calculator, item)));
